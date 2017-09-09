@@ -16,7 +16,23 @@ This event is emitted when a payment is made to the contract.
  - `amount` is a `uint`
  - `formonth` is a uint representing the month of the year(1-12)
 
-### function getPayment
+### payable function [default]
+
+The default function when sending value to the contract.  This allows a 
+subscriber to pay for the current month.
+
+    eth.sendTransaction({from: accounts[0], to: subscriptionContract, value: subscriptionCost, gas: 50000})
+
+### payable function makePayment
+
+Allows a subscriber to make a payment for a specific month.
+
+#### Parameters
+
+ - `uint16 year` - The year
+ - `uint8 month` - The month of the year
+
+### constant function getPayment
 
 Returning a `uint` representing the amount the subscriber has paid for a 
 specific month.
@@ -27,28 +43,12 @@ specific month.
  - `uint16 year` - The year
  - `uint8 month` - The month of the year
 
-### function [default]
-
-The default function when sending value to the contract.  This allows a 
-subscriber to pay for the current month.
-
-    eth.sendTransaction({from: accounts[0], to: subscriptionContract, value: subscriptionCost, gas: 50000})
-
-### function makePayment
-
-Allows a subscriber to make a payment for a specific month.
-
-#### Parameters
-
- - `uint16 year` - The year
- - `uint8 month` - The month of the year
-
-### function isAlive
+### constant function isAlive
 
 Returns `bool` representing whether or not the contract is "alive".  A contract
 that is not "alive" can not accept payments.
 
-### function paidUp
+### constant function paidUp
 
 Returning a `bool` this function tells us if the user is paid up for the current
 month.
@@ -57,7 +57,7 @@ month.
 
  - `who` `address` of the subject account
 
-### function getManager
+### constant function getManager
 
 Returns the current manager's `address`.
 
