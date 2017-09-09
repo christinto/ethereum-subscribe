@@ -18,11 +18,11 @@ pragma solidity ^0.4.15;
 
 import "./DateTime.sol";
 
-/** Subscriptions
+/** MonthlySubscriptions
 
     Contract that takes payment for monthly subscriptions
  */
-contract Subscriptions {
+contract MonthlySubscriptions {
 
     struct Subscriber {
         bool exists;
@@ -67,7 +67,7 @@ contract Subscriptions {
     /* Constructor
      * @param _manager  The account that has full control over this contract 
      */
-    function Subscriptions(address _manager, address _datetime) {
+    function MonthlySubscriptions(address _manager, address _datetime) {
         manager = _manager;
         datetime = DateTime(_datetime);
         alive = true;

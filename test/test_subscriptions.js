@@ -1,6 +1,6 @@
-var Subscriptions = artifacts.require("Subscriptions");
+var MonthlySubscriptions = artifacts.require("MonthlySubscriptions");
 
-contract("Subscriptions", function(accounts) {
+contract("MonthlySubscriptions", function(accounts) {
 
     var mary = accounts[0];
     var joe = accounts[1];
@@ -12,7 +12,7 @@ contract("Subscriptions", function(accounts) {
 
         var sub;
 
-        return Subscriptions.deployed().then(function(instance) {
+        return MonthlySubscriptions.deployed().then(function(instance) {
 
             sub = instance;
 
@@ -35,7 +35,7 @@ contract("Subscriptions", function(accounts) {
 
         var sub;
 
-        return Subscriptions.deployed().then(function(instance) {
+        return MonthlySubscriptions.deployed().then(function(instance) {
 
             sub = instance;
 
@@ -57,13 +57,13 @@ contract("Subscriptions", function(accounts) {
 
         var sub;
 
-        return Subscriptions.deployed().then(function(instance) {
+        return MonthlySubscriptions.deployed().then(function(instance) {
 
             sub = instance;
 
             return web3.eth.sendTransaction({
                 from: mary, 
-                to: Subscriptions.address, 
+                to: MonthlySubscriptions.address, 
                 value: web3.toWei(1, "ether")
             });
 
@@ -81,9 +81,9 @@ contract("Subscriptions", function(accounts) {
 
     it("should have a balance of 1.5ETH", function() {
 
-        return Subscriptions.deployed().then(function() {
+        return MonthlySubscriptions.deployed().then(function() {
 
-            return web3.eth.getBalance(Subscriptions.address)
+            return web3.eth.getBalance(MonthlySubscriptions.address)
 
         }).then(function(retval) {
 
@@ -98,7 +98,7 @@ contract("Subscriptions", function(accounts) {
         var sub;
         var startingBalance = parseInt(web3.eth.getBalance(manager));
 
-        return Subscriptions.deployed().then(function(instance) {
+        return MonthlySubscriptions.deployed().then(function(instance) {
 
             sub = instance;
 
@@ -122,7 +122,7 @@ contract("Subscriptions", function(accounts) {
         var sub;
         var startingBalance = parseInt(web3.eth.getBalance(manager));
 
-        return Subscriptions.deployed().then(function(instance) {
+        return MonthlySubscriptions.deployed().then(function(instance) {
 
             sub = instance;
 
@@ -135,7 +135,7 @@ contract("Subscriptions", function(accounts) {
         }).then(function(retval) {
 
             assert.isFalse(retval);
-            assert.equal(web3.eth.getBalance(Subscriptions.address), 0);
+            assert.equal(web3.eth.getBalance(MonthlySubscriptions.address), 0);
 
         });
 
