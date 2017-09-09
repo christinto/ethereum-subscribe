@@ -77,6 +77,3 @@ Withdraw the full balance of the contract.
 
 Withdraw the full balance of the contract and disable it.
 
-
-
-
