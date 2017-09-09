@@ -129,9 +129,9 @@ contract MonthlySubscriptions {
     /* setManager
      * @dev Change the managing account for this contract
      */
-    function setManager(address _newManager) external onlyBy(manager) requireAlive {
+    function setManager(address newManager) external onlyBy(manager) requireAlive {
         // Send all value to the manager
-        manager = _newManager;
+        manager = newManager;
     }
 
     /* withdraw
